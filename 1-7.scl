@@ -1,0 +1,5 @@
+def sub[A](p:(List[A], Int)): (List[A],List[A]) = if (p._1 == Nil || p._2 == 0) (p._1, Nil) else {val pair = sub((p._1, p._2 - 1)); if (pair._1 == Nil) (Nil, pair._2) else (pair._1.tail, pair._1.head::pair._2)};
+
+def switch[A](p:(List[A], Int)): List[A] = {val pair = sub(p._1, p._2); pair._1:::pair._2.reverse};
+
+switch((List(1,7,5,6),2))

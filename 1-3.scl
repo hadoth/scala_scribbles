@@ -1,0 +1,42 @@
+def hasFirst[A](list: List[A]) = list != Nil;
+def hasSecond[A](list: List[A]) = list.tail != Nil;
+def hasTwo [A](list: List[A]) = hasFirst(list) && hasSecond(list);
+
+def sortedAsc[A <% Ordered[A]](list: List[A]): Boolean = if (hasTwo(list)) (list.head <= list.tail.head && sortedAsc(list.tail)) else true;
+def sortedDesc[A <% Ordered[A]](list: List[A]): Boolean = if (hasTwo(list)) (list.head >= list.tail.head && sortedDesc(list.tail)) else true;
+
+def isSorted[A <% Ordered[A]](list: List[A]): Boolean = (sortedAsc(list) || sortedDesc(list));
+
+val sorted1 = List(1,2,3,4,5);
+val sorted2 = List(1,1,1,1,1);
+val sorted3 = List(1,1,1,1,5);
+val sorted4 = List(1,5,5,5,5);
+val sorted5 = List(5,4,3,2,1);
+val sorted6 = List("a","b","c","d","e");
+val sorted7 = List(5,1,1,1,1);
+val sorted8 = List(5,5,5,5,1);
+val sorted9 = List(1);
+val sorted10 = List();
+
+val notSorted1 = List(1,2,3,2,1);
+val notSorted2 = List(1,5,5,5,1);
+val notSorted3 = List(5,1,1,1,5);
+val notSorted4 = List(1,2,3,4,1);
+val notSorted5 = List(5,4,3,2,5);
+
+isSorted(sorted1);
+isSorted(sorted2);
+isSorted(sorted3);
+isSorted(sorted4);
+isSorted(sorted5);
+isSorted(sorted6);
+isSorted(sorted7);
+isSorted(sorted8);
+isSorted(sorted9);
+isSorted(sorted10);
+
+isSorted(notSorted1);
+isSorted(notSorted2);
+isSorted(notSorted3);
+isSorted(notSorted4);
+isSorted(notSorted5);

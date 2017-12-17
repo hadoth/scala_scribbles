@@ -1,0 +1,17 @@
+def sub[A](p:(List[A], Int)): (List[A],List[A]) = if (p._1 == Nil || p._2 == 0) (p._1, Nil) else {val pair = sub((p._1, p._2 - 1)); if (pair._1 == Nil) (Nil, pair._2) else (pair._1.tail, pair._1.head::pair._2)};
+
+sub((List(1,2,3,4),0));
+sub((List(1,2,3,4),1));
+sub((List(1,2,3,4),2));
+sub((List(1,2,3,4),3));
+sub((List(1,2,3,4),4));
+sub((List(1,2,3,4),5));
+
+def subList[A](p:(List[A], Int)): List[List[A]] = if (p._1 == Nil) Nil else {val pair = sub(p._1, p._2); pair._2.reverse::subList(pair._1, p._2)};
+
+subList((List(1,2,3,4,5),1));
+subList((List(1,2,3,4,5),2));
+subList((List(1,2,3,4,5),3));
+subList((List(1,2,3,4,5),4));
+subList((List(1,2,3,4,5),5));
+subList((List(1,2,3,4,5),6));

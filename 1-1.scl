@@ -1,0 +1,20 @@
+def hasFirst[A](list: List[A]) = list != Nil;
+def hasSecond[A](list: List[A]) = list.tail != Nil;
+def hasTwo [A](list: List[A]) = hasFirst(list) && hasSecond(list)
+
+def listStart [A](list: List[A]) = list.head;
+def listEnd [A](list: List[A]) = listStart(list.reverse);
+
+def ends [A](list: List[A]) = if (hasTwo(list)) (listStart(list), listEnd(list)) else throw new Exception("List is too short");
+
+val test1 = List(1,2,3,4,5);
+val test2 = List(1,2);
+val test3 = List("a","b","c","d","e");
+val test4 = List(1);
+val test5 = List();
+
+ends (test1);
+ends (test2);
+ends (test3);
+ends (test4);
+ends (test5);

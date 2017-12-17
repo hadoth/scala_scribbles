@@ -1,0 +1,10 @@
+def potega(p:(Int,Int)):Int = if (p._2 == 0) 1 else p._1 * potega(p._1, p._2 - 1);
+
+def addPower(p:(Int, Int)): List[Int] = if (p._2 >= 0) addPower((p._1, p._2 - 1)):::potega((p._1, p._2))::Nil else Nil;
+
+potega((2,3));
+potega((2,2));
+potega((2,1));
+potega((2,0));
+
+addPower((2,3));

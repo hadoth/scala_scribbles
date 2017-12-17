@@ -1,0 +1,20 @@
+def drop[A](p:(List[A], Int)): List[A] = if (p._2 < 0) throw new Exception ("Illegal cut argument!") else if (p._2 == 0) p._1 else drop(p._1.tail, p._2 - 1);
+
+val test5 = List(1,2,3,4,5);
+val test1 = List(1);
+val test0 = List();
+
+drop((test5, 10));
+drop((test5, 5));
+drop((test5, 2));
+drop((test5, 0));
+drop((test5, -1));
+
+drop((test1, 2));
+drop((test1, 1));
+drop((test1, 0));
+drop((test1, -1));
+
+drop((test0, 1));
+drop((test0, 0));
+drop((test0, -1));
